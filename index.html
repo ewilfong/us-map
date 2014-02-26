@@ -51,15 +51,16 @@
              },
 
              'click': function (event, data) {
+                addthis.update('share', 'title', 'I live in ' + data.name + '! What State do you Live In?!?'); 
+                addthis.title = "I live in ' + data.name + '! What State do you Live In?!?";  
+                addthis.toolbox(".addthis_toolbox");
                  $('#alert')
              .text('You live in ' + data.name + '!')
              .stop()
              .css('backgroundColor', '#af0')
              .animate({ backgroundColor: '#ddd' }, 1000);
-                 var addthis_share = { title: "I got CO! What State do you Live In?!?" };
              }
          });
-
 
      });
 	</script>
