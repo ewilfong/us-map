@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>US Map Demo</title>
-	
+	<title>What State do you Live In?!?</title>
+	<meta name="title" content="What State do you Live In?!?" />
+    <meta name="description"   content="This quiz is truly amazing." />
+    <meta property="og:url" content="http://ewilfong.github.io/where-do-you-live/" />
+
 	<style>
+     body {
+         text-align: center;
+     }
+     .wrap {
+         margin: 0 auto; 
+         max-width: 930px;
+     }
+      h1 {
+        text-transform: uppercase;
+     }
+     #map {
+         width: 930px; 
+         height: 630px;
+     }
 	  #alert {
 	    font-family: Arial, Helvetica, sans-serif;
 	    font-size: 16px;
@@ -21,33 +38,54 @@
 	<script src="jquery.usmap.js"></script>
 	
 	<script>
-	$(document).ready(function() {
-	  
-	  $('#map').usmap({
-	    'stateStyles': {
-	      fill: '#025', 
-	      "stroke-width": 1,
-	      'stroke' : '#036'
-	    },
-	    'stateHoverStyles': {
-	      fill: 'teal'
-	    },
-	    
-	    'click' : function(event, data) {
-	      $('#alert')
-	        .text('Click '+data.name+' on map 2')
-	        .stop()
-	        .css('backgroundColor', '#af0')
-	        .animate({backgroundColor: '#ddd'}, 1000);
-	    }
-	  });
-	  
+     $(document).ready(function () {
 
-	});
+         $('#map').usmap({
+             'stateStyles': {
+                 fill: '#025',
+                 "stroke-width": 1,
+                 'stroke': '#036'
+             },
+             'stateHoverStyles': {
+                 fill: 'teal'
+             },
+
+             'click': function (event, data) {
+                 $('#alert')
+             .text('You live in ' + data.name + '!')
+             .stop()
+             .css('backgroundColor', '#af0')
+             .animate({ backgroundColor: '#ddd' }, 1000);
+                 var addthis_share = { title: "I got CO! What State do you Live In?!?" };
+             }
+         });
+
+
+     });
 	</script>
 </head>
 <body>
-    <div id="map" style="width: 930px; height: 630px;"></div>
-    <div id="alert">Click alerts</div>
+    <div class="wrap">
+        <h1>What State do you Live In?!?</h1>
+        <div id="map"></div>
+        <div id="alert">Click alerts</div>
+        <div class="answer_shares">
+			<h2 class="bold">SHARE YOUR RESULTS</h2>
+			<div class="answer_shares_buttons">
+				<!-- AddThis Button BEGIN -->
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                <a class="addthis_button_preferred_1"></a>
+                <a class="addthis_button_preferred_2"></a>
+                <a class="addthis_button_preferred_3"></a>
+                <a class="addthis_button_preferred_4"></a>
+                <a class="addthis_button_compact"></a>
+                <a class="addthis_counter addthis_bubble_style"></a>
+                </div>
+                <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e27403250d4325f"></script>
+                <!-- AddThis Button END -->
+			</div>
+        </div>
+    </div>
 </body>
 </html>
