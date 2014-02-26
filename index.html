@@ -52,8 +52,11 @@
 
              'click': function (event, data) {
                 addthis.update('share', 'title', 'I live in ' + data.name + '! What State do you Live In?!?'); 
-                addthis.title = "I live in ' + data.name + '! What State do you Live In?!?";  
+                addthis.title = "I live in " + data.name + "! What State do you Live In?!?";  
                 addthis.toolbox(".addthis_toolbox");
+                for(var i = 0; i < addthis.links.length; i++){
+                    addthis.links[i].share.title= "I live in " + data.name + "! What State do you Live In?!?";
+                }
                  $('#alert')
              .text('You live in ' + data.name + '!')
              .stop()
